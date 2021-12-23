@@ -1,1 +1,1 @@
-# ibmcloud-image-map
+# gx-sell-c
