@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    ibm = {
+      source  = "IBM-Cloud/ibm"
+      version = "1.38.1"
+    }
+  }
+}
+
 ##############################################################################
 # This is default entrypoint.
 #  - Ensure user provided region is valid
@@ -50,7 +59,7 @@ data "ibm_is_subnet" "vsi_subnet"{
 
 //security group
 resource "ibm_is_security_group" "vsi_security_group" {
-  name           = var.vsi_security_group
+  name           = var.vsi_instance_name
   vpc            = data.ibm_is_subnet.vsi_subnet.vpc
   resource_group = data.ibm_is_subnet.vsi_subnet.resource_group
 }
